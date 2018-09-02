@@ -1,23 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet"
-href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<link href="bower_components/lightbox2/dist/css/lightbox.css" rel="stylesheet">
+	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>롤 전적 검색 op.gg copy</title>
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link href="bower_components/lightbox2/dist/css/lightbox.css"
+	rel="stylesheet">
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/tinymce/tinymce.min.js"></script>
+<style>
+.banner_gg {
+border-right : solid 1px white;
+padding-right : 20px;
+}
+.ad{
+background-color :  #1576bb;
+padding : 10px;
+
+}
+.centerimg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+	margin-bottom: 20px;
+	
+}
+.id_input {
+	margin-top: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;                  /* margin-bottom 적용해도 콘솔에서 없다고 나옴. */
+}
+.container{
+background-color : #17a2b8;
+width : 150%;
+margin: 0;     /*   margin 0인데 오른쪽에 왜 공간이 남는지 */
+}
+.famous_issue{
+background-color : "white";
+display :block;}
+.famous_news{
+background-color : "white";
+display : block;}
+#searchform{               
+ display : block;
+ margin-left :auto;
+ margin-right : auto;
+ width : 30%	;
+}
+.menu{
+background-color : #094d8b;
+padding : 10px;
+}
+.banner{
+background-color :#17a2b8;
+padding : 30px;}  
+.famous_issue{
+width : 40%;
+margin-left: 50px;	
+display: inline-block;
+background-color : white;
+margin-bottom : 60px;
+}
+.famous_news{
+width : 40%;
+margin-left: 50px;
+display: inline-block;
+background-color : white;
+width: 40%;
+}
+.article{
+border-bottom: solid 1px black;
+margin : 10px;}
+.banner_pubg{
+width : max-content;
+display : inline-block;
+margin-left : 20px;
+}
+.banner_ow{
+width : max-content;
+display : inline-block;
+margin-left : 0px;
+}
+.banner_cr{
+width : max-content;
+display : inline-block;
+margin-left : 0px;
+}
+</style>
+
+
 <script>
-$(function(){
-});
+	$(function() {
+	});
 </script>
 </head>
 <body>
-
+	<div class=wholepage>
+		<div class="banner"> 
+			<a href='http://www.op.gg' class="banner_gg">
+				<img src="http://opgg-static.akamaized.net/images/logo/l_logo.png">
+				</a>
+			<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
+				<div class="banner_pubg">
+				<img src='http://opgg-static.akamaized.net/images/logo/logo-pubg-small.png'>배틀그라운드</a>
+				</div>
+			<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
+				<div class="banner_ow">
+				<img src='http://opgg-static.akamaized.net/images/logo/logo-overwatch-small.png'>오버워치</a>
+				</div>	
+			<a href='http://cr.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
+				<div class="banner_cr">
+				<img src='http://opgg-static.akamaized.net/images/logo/logo-cr-small.png'>클래시로얄</a>
+				</div>
+		
+		</div>
+		<div class="menu">
+				<input type="button"  onclick="window.location.href= 'http://www.op.gg/champion/statistics'" value="챔피언 분석">
+				<input type="button" onclick="window.location.href='http://www.op.gg/statistics/champion/'" value="통계">
+				<input type="button" onclick="window.location.href='http://www.op.gg/ranking/ladder/'" value="랭킹">
+				<input type="button" onclick="window.location.href='http://www.op.gg/spectate/pro/'" value="프로관전">
+				<input type="button" onclick="window.location.href='https://talk.op.gg/s/lol/all'" value="커뮤니티">
+		</div>
+		<div class="ad">
+			<a href='https://talk.op.gg/s/lol/free/803660/' style="color : white;">아시안 게임 이벤트 당첨자 발표! [지금 확인하러 가기]</a>
+		</div>
+		<div class="container">
+			<img
+			src="https://attach.s.op.gg/logo/20180827135536.c30a1b2771fb9d7327e164c84bfa5269.png"
+			class="centerimg" /> <!--  자기 자신 홈페이지로 이동 어캐할지.. this? -->
+			<form autocomplete="off" id="searchform">
+				<input type="text" name = "id">
+				<input type="submit" value  = "검색"	> <!--  하나로 묶고싶은데 반응형으로 서브밋만 내려감.  -->
+			</form>					<!-- class, id 적용 기준 -->
+			<div class="famous_issue">
+				<p class="article">OP.GG Talk 인기글</p>
+				<ol>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>	
+				</ol>
+			</div>
+			<div class="famous_news">
+				<p class="article">실시간 유저 뉴스</p>
+				<ol>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>	
+		</div>
+		
+	</div>
 </body>
 </html>
