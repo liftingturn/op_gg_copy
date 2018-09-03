@@ -16,6 +16,7 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=neCGRd4OZ1fqsTuuRqyI&submodules=geocoder"></script>
 <style>
 .wholepage{
 height : 1000px;
@@ -120,9 +121,55 @@ li:hover{
 
 <script>
 	$(function() {
-			
+		var map = new naver.maps.Map('map', {
+		    center: new naver.maps.LatLng(37.5040286, 127.0545259),
+		    zoom: 10
+		});
+
+		var marker = new naver.maps.Marker({
+		    position: new naver.maps.LatLng(37.5040286, 127.0545259),
+		    map: map
+		});
+		var HOME_PATH = window.HOME_PATH || '.';
+
+		var cityhall = new naver.maps.LatLng(37.5040286, 127.0545259),
+		    map = new naver.maps.Map('map', {
+		        center: cityhall.destinationPoint(0, 500),
+		        zoom: 10
+		    }),
+		    marker = new naver.maps.Marker({
+		        map: map,
+		        position: cityhall
+		    });
+
+		var contentString = [
+		        '<div class="iw_inner">',
+		        '   <h3>오피지지</h3>',
+		        '   <p>서울특별시 강남구 삼성로85길 35-6 |서울특별시 강남구 대치동 895-13<br />',
+		        '       <img src="'+ HOME_PATH +'https://getfile.fmkorea.com/getfile.php?code=443e123286f89b0e1c28baa38a38cee4&file=http%3A%2F%2Fwww.dogdrip.net%2Fdvs%2Fb%2Fi%2F18%2F06%2F06%2F78%2F881%2F012%2F166%2F0c08d71e7230f805ffd184adcd8e2032.jpg&r=" width="55" height="55" alt="오피지지" class="thumb" /><br />',
+		        '       02-455-9904 | 컴퓨터프로그래밍,정보서비스업 > 소프트웨어개발<br />',
+		        '       <a href="http://www.op.gg" target="_blank">www.op.gg/</a>',
+		        '   </p>',
+		        '</div>'
+		    ].join('');
+
+		var infowindow = new naver.maps.InfoWindow({
+		    content: contentString
+		});
+
+		naver.maps.Event.addListener(marker, "click", function(e) {
+		    if (infowindow.getMap()) {
+		        infowindow.close();
+		    } else {
+		        infowindow.open(map, marker);
+		    }
+		});
+
+		infowindow.open(map, marker);
 	});
 </script>
+
+
 </head>
 <body>
 	<div class=wholepage>
@@ -130,16 +177,16 @@ li:hover{
 			<a href='http://www.op.gg' class="banner_gg">
 				<img src="http://opgg-static.akamaized.net/images/logo/l_logo.png">
 				</a>
-			<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
-				<div class="banner_pubg">
+			<div class="banner_pubg">
+				<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
 				<img src='http://opgg-static.akamaized.net/images/logo/logo-pubg-small.png'>배틀그라운드</a>
 				</div>
-			<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
-				<div class="banner_ow">
+			<div class="banner_ow">
+				<a href='https://pubg.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
 				<img src='http://opgg-static.akamaized.net/images/logo/logo-overwatch-small.png'>오버워치</a>
 				</div>	
-			<a href='http://cr.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
-				<div class="banner_cr">
+			<div class="banner_cr">
+				<a href='http://cr.op.gg/?utm_source=opgg&utm_medium=link' style="color:white;">
 				<img src='http://opgg-static.akamaized.net/images/logo/logo-cr-small.png'>클래시로얄</a>
 				</div>
 		
@@ -203,8 +250,8 @@ li:hover{
 					???: 응 여보 나 군대 안가</li>	
 				</ol>
 			</div>	
+		<div id="map" style="width:50%;height:200px; margin-left:auto; margin-right:auto"></div>
 		</div>
-		
 	</div>
 </body>
 </html>
