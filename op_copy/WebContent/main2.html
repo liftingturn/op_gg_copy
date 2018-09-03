@@ -17,6 +17,10 @@
 <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
 <script src="bower_components/tinymce/tinymce.min.js"></script>
 <style>
+.wholepage{
+height : 1000px;
+background-color :  #17a2b8;
+}
 .banner_gg {
 border-right : solid 1px white;
 padding-right : 20px;
@@ -42,12 +46,14 @@ padding : 10px;
 	width: 40%;                 
 }
 .container_fluid{
-display : block;
-height : 1000px;
+
+height : max_content;
 margin: 0;    
 }
 #container_id{
-background-color : #17a2b8;
+
+height : max_content;
+;
 }
 .famous_issue{
 background-color : "white";
@@ -75,13 +81,14 @@ margin-left: 50px;
 display: inline-block;
 background-color : white;
 margin-bottom : 60px;
+height: 100%;
 }
 .famous_news{
 width : 40%;
 margin-left: 50px;
 display: inline-block;
 background-color : white;
-width: 40%;
+height: 100%;
 }
 .article{
 border-bottom: solid 1px black;
@@ -101,11 +108,19 @@ width : max-content;
 display : inline-block;
 margin-left : 0px;
 }
+li:hover{
+  text-decoration: underline;
+ cursor: pointer;
+
+}
+
+
 </style>
 
 
 <script>
 	$(function() {
+			
 	});
 </script>
 </head>
@@ -149,22 +164,43 @@ margin-left : 0px;
 			</form>					
 			<div class="famous_issue">
 				<p class="article">OP.GG Talk 인기글</p>
-				<ol>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>	
+				<ol class="list-group">
+					<li 
+					class="list-group-item"
+					onclick="location.href='https://talk.op.gg/s/lol/free/805256/%EB%98%A5%EA%B7%B8%EB%9E%A9%EB%8B%98%EC%9D%B4-%ED%8A%B8%EB%A1%A4%ED%96%88%EB%8B%A4%EB%A9%B0-op-gg%EC%97%90-%EA%B8%80%EC%98%AC%EB%A6%AC%EC%8B%A0-z%EC%BF%A8%EC%BF%A8z%EB%8B%98'"
+					
+					>
+					똥그랩님이 트롤했다며 op.gg에 글올리신 z쿨쿨z님 보세요</li>
+					<li
+					class="list-group-item">
+					안녕하세요, 스킨 증정 이벤트 의견받습니다!</li>
+					<li
+					 class="list-group-item">
+					 랭크게임-데스별-탑-라이너의-심리변화</li>
+					<li class="list-group-item ">
+					역대 대회별 우리흥 마지막 모습</li>
+					<li class="list-group-item ">
+					???: 응 여보 나 군대 안가</li>	
 				</ol>
 			</div>
 			<div class="famous_news">
 				<p class="article">실시간 유저 뉴스</p>
-				<ol>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+				<ol class="list-group">
+					<li 
+					class="list-group-item"
+					onclick="location.href='https://talk.op.gg/s/lol/free/805256/%EB%98%A5%EA%B7%B8%EB%9E%A9%EB%8B%98%EC%9D%B4-%ED%8A%B8%EB%A1%A4%ED%96%88%EB%8B%A4%EB%A9%B0-op-gg%EC%97%90-%EA%B8%80%EC%98%AC%EB%A6%AC%EC%8B%A0-z%EC%BF%A8%EC%BF%A8z%EB%8B%98'"
+					>
+					똥그랩님이 트롤했다며 op.gg에 글올리신 z쿨쿨z님 보세요</li>
+					<li
+					class="list-group-item">
+					안녕하세요, 스킨 증정 이벤트 의견받습니다!</li>
+					<li
+					 class="list-group-item">
+					 랭크게임-데스별-탑-라이너의-심리변화</li>
+					<li class="list-group-item ">
+					역대 대회별 우리흥 마지막 모습</li>
+					<li class="list-group-item ">
+					???: 응 여보 나 군대 안가</li>	
 				</ol>
 			</div>	
 		</div>
