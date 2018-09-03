@@ -39,12 +39,15 @@ padding : 10px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 40%;                  /* margin-bottom 적용해도 콘솔에서 없다고 나옴. */
+	width: 40%;                 
 }
-.container{
+.container_fluid{
+display : block;
+height : 1000px;
+margin: 0;    
+}
+#container_id{
 background-color : #17a2b8;
-width : 150%;
-margin: 0;     /*   margin 0인데 오른쪽에 왜 공간이 남는지 */
 }
 .famous_issue{
 background-color : "white";
@@ -56,6 +59,7 @@ display : block;}
  display : block;
  margin-left :auto;
  margin-right : auto;
+ margin-bottom : 20px;
  width : 30%	;
 }
 .menu{
@@ -135,14 +139,14 @@ margin-left : 0px;
 		<div class="ad">
 			<a href='https://talk.op.gg/s/lol/free/803660/' style="color : white;">아시안 게임 이벤트 당첨자 발표! [지금 확인하러 가기]</a>
 		</div>
-		<div class="container">
+		<div class="container-fluid" id="container_id">
 			<img
 			src="https://attach.s.op.gg/logo/20180827135536.c30a1b2771fb9d7327e164c84bfa5269.png"
 			class="centerimg" /> <!--  자기 자신 홈페이지로 이동 어캐할지.. this? -->
 			<form autocomplete="off" id="searchform">
-				<input type="text" name = "id">
-				<input type="submit" value  = "검색"	> <!--  하나로 묶고싶은데 반응형으로 서브밋만 내려감.  -->
-			</form>					<!-- class, id 적용 기준 -->
+				<input type="text" name = "id" placeholder="소환사명...챔피언명...">
+				<input type="submit" value  = "검색"	> 
+			</form>					
 			<div class="famous_issue">
 				<p class="article">OP.GG Talk 인기글</p>
 				<ol>
